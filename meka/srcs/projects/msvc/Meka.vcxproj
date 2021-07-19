@@ -47,11 +47,12 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\..\objs\meka\$(Configuration)\</OutDir>
+    <OutDir> ..\..\..</OutDir>
     <IntDir>..\..\..\objs\meka\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>mekaw</TargetName>
-    <CustomBuildAfterTargets>Link</CustomBuildAfterTargets>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +114,8 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <CustomBuildStep>
-      <Command>copy /Y $(OutDir)$(TargetName)$(TargetExt) ..\..\..</Command>
+      <Command>
+      </Command>
       <Outputs>..\.\..\mekaw.exe</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
