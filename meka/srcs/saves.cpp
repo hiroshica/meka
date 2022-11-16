@@ -86,8 +86,11 @@ void        Load_Game_Fixup(void)
             WrZ80_NoHook (0x7FFF, g_machine.mapper_regs[1]);
             WrZ80_NoHook (0xBFFF, g_machine.mapper_regs[2]);
             break;
-        case MAPPER_SMS_Korean:
+        case MAPPER_SMS_Korean_A000:
             WrZ80_NoHook (0xA000, g_machine.mapper_regs[2]);
+            break;
+        case MAPPER_SMS_Korean_BFFC:
+            WrZ80_NoHook(0xBFFC, g_machine.mapper_regs[0]);
             break;
         case MAPPER_ColecoVision:
             for (i = 0x0400; i < 0x2000; i += 0x400)
@@ -104,11 +107,14 @@ void        Load_Game_Fixup(void)
             break;
         case MAPPER_SG1000_Taiwan_MSX_Adapter_TypeA:
             break;
-        case MAPPER_SMS_Korean_Xin1:
+        case MAPPER_SMS_Korean_FFFF_HiCom:
             WrZ80_NoHook (0xFFFF, g_machine.mapper_regs[0]);
             break;
         case MAPPER_SC3000_Survivors_Multicart:
             Out_SMS(0xE0, g_machine.mapper_regs[0]);
+            break;
+        case MAPPER_SMS_Korean_2000_xor_1F:
+            WrZ80_NoHook(0x2000, g_machine.mapper_regs[0]);
             break;
         }
     }
@@ -228,7 +234,7 @@ void        SaveState_Load()
 }
 
 // Save current state to given file, in MEKA save state format
-int     Save_Game_MSV (FILE *f)
+int     Save_Game_MSV(FILE *f)
 {
     u8  b;
     u16 w;
@@ -296,7 +302,8 @@ int     Save_Game_MSV (FILE *f)
     case MAPPER_SMS_Korean_MSX_8KB_0003:
     case MAPPER_SMS_Korean_MSX_8KB_0300:
     case MAPPER_SMS_Korean_Janggun:
-    case MAPPER_SMS_Korean_Xin1:
+    case MAPPER_SMS_Korean_FFFF_HiCom:
+    case MAPPER_SMS_Korean_2000_xor_1F:
     default:                  
         fwrite (RAM, 0x2000, 1, f); // Do not use g_driver->ram because of g_driver video mode change
         break;
@@ -467,7 +474,8 @@ int         Load_Game_MSV(FILE *f)
     case MAPPER_SMS_Korean_MSX_8KB_0003:
     case MAPPER_SMS_Korean_MSX_8KB_0300:
     case MAPPER_SMS_Korean_Janggun:
-    case MAPPER_SMS_Korean_Xin1:
+    case MAPPER_SMS_Korean_FFFF_HiCom:
+    case MAPPER_SMS_Korean_2000_xor_1F:
     default:
         fread (RAM, 0x2000, 1, f); // Do not use g_driver->ram because of g_driver video mode change
         break;
