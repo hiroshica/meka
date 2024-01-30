@@ -47,7 +47,7 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir> ..\..\..</OutDir>
+    <OutDir>..\..\..</OutDir>
     <IntDir>..\..\..\objs\meka\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>mekaw</TargetName>

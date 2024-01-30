@@ -136,7 +136,7 @@ void    gui_menus_init()
     menus_ID.screenshots = menu_add_menu (menus_ID.video, Msg_Get(Msg_Menu_Video_ScreenCapture),    MENU_ITEM_FLAG_ACTIVE);
     menu_add_item(menus_ID.screenshots, Msg_Get(Msg_Menu_Video_ScreenCapture_Capture),      "PrintScreen",  MENU_ITEM_FLAG_ACTIVE, (t_menu_callback)Capture_MenuHandler_Capture, NULL);
     menu_add_item(menus_ID.screenshots, Msg_Get(Msg_Menu_Video_ScreenCapture_CaptureRepeat),NULL,           MENU_ITEM_FLAG_ACTIVE, (t_menu_callback)Capture_MenuHandler_AllFrames, NULL);
-    menu_add_item(menus_ID.screenshots, Msg_Get(Msg_Menu_Video_ScreenCapture_IncludeGui),   NULL,           MENU_ITEM_FLAG_ACTIVE | Is_Checked(g_config.capture_include_gui), (t_menu_callback)Capture_MenuHandler_IncludeGui, NULL);
+    menu_add_item(menus_ID.screenshots, Msg_Get(Msg_Menu_Video_ScreenCapture_IncludeGui),   NULL,           MENU_ITEM_FLAG_ACTIVE, (t_menu_callback)Capture_MenuHandler_IncludeGui, NULL);
     // VIDEO -> THEMES
     menus_ID.themes   = menu_add_menu (menus_ID.video, Msg_Get(MSG_Menu_Video_Themes),     MENU_ITEM_FLAG_ACTIVE);
     Skins_MenuInit (menus_ID.themes);

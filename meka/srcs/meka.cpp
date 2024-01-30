@@ -200,7 +200,7 @@ static void Init_Default_Values()
     g_config.capture_filename_template       = "%s-%02d.png";
     g_config.capture_crop_scrolling_column   = true;
     g_config.capture_crop_align_8x8          = false;
-    g_config.capture_include_gui             = true;
+    g_config.capture_include_gui             = false;
 
     // Fonts
     g_config.font_menus                      = FONTID_LARGE; // FONTID_CRISP;

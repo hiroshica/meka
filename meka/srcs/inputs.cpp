@@ -251,8 +251,15 @@ void        Inputs_Check_GUI (bool sk1100_pressed)
     #endif
 
     // Screen capture
-    if (Inputs_KeyPressed(ALLEGRO_KEY_PRINTSCREEN, FALSE))
-        Capture_Request();
+        if (Inputs_KeyPressed(ALLEGRO_KEY_PRINTSCREEN, FALSE))
+        {
+            if (g_keyboard_modifiers & ALLEGRO_KEYMOD_SHIFT) {
+                Capture_Request_AllFrames();
+            }
+            else {
+                Capture_Request();
+            }
+        }
 
     // SF-7000 Disk 21 Bomber Raid
     // if (Test_Key(KEY_W))

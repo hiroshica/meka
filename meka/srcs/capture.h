@@ -17,6 +17,7 @@
 void    Capture_Init                    (void);
 void    Capture_Init_Game               (void);
 void    Capture_Request                 (void);
+void    Capture_Request_AllFrames       (void);
 void    Capture_Update                  (void);
 
 void    Capture_MenuHandler_Capture     (void);

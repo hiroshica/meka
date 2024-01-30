@@ -194,7 +194,7 @@ void    Capture_MenuHandler_Capture(void)
     Capture_Request();
 }
 
-void    Capture_MenuHandler_AllFrames(void)
+void Capture_Request_AllFrames(void)
 {
     Capture.request_all_frames = !Capture.request_all_frames;
     gui_menu_toggle_check(menus_ID.screenshots, 1);
@@ -202,6 +202,12 @@ void    Capture_MenuHandler_AllFrames(void)
     {
         // FIXME-CAPTURE
     }
+}
+
+
+void Capture_MenuHandler_AllFrames(void)
+{
+    Capture_Request_AllFrames();
 }
 
 void    Capture_MenuHandler_IncludeGui(void)
